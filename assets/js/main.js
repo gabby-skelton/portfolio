@@ -262,3 +262,39 @@
   });
 
 })()
+
+$(document).ready(function() {
+
+	$('#email-form').on('submit', function(e) {
+		e.preventDefault();
+		
+		//get the name field value
+		var name = $('#name').val();
+		//get the name field value
+		var email = $('#email').val();
+		//get the message
+		var message = $('#message').val();
+		
+		//send to formspree
+		$.ajax({
+			url:'https://formspree.io/f/mjvjwlwn',
+			method:'POST',
+			data:{
+				name:name,
+				_replyto:email,
+				 email:email,
+				message:message,
+				_subject:'New Portfolio Inquiry',
+			},
+			dataType:"json",
+			success:function() {
+				console.log('success!');	
+				$('#email-form').hide();
+				$('#conf-block').show();
+			}	
+
+		});		
+		
+	});
+
+});	
