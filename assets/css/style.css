@@ -977,3 +977,7 @@ section {
 #footer .credits {
   font-size: 13px;
 }
+
+.apple_copycat {
+  border: 1px solid gray;
+}
